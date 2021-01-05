@@ -29,8 +29,14 @@ import PostForm from "views/PostForm.js";
 import FieldList from "views/FieldList.js";
 import UnitList from "views/UnitList.js";
 import UnitForm from "views/UnitForm.js";
+import UnitFormUpdate from "views/UnitFormUpdate.js";
 
 var routes = [
+  {
+    path: "/unit-form-update/:id",
+    component: UnitFormUpdate,
+    layout: "/admin",
+  },
   {
     path: "/unit-form",
     name: "UnitForm",

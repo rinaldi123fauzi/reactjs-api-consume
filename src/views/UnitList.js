@@ -99,7 +99,7 @@ class UnitList extends React.Component {
 
     updateUnit = (id) =>{
       console.log(id)
-      this.props.history.push("UnitFormUpdate/"+id)
+      this.props.history.push("unit-form-update/"+id)
     }
 
     componentDidMount(){
