@@ -75,10 +75,15 @@ class UnitList extends React.Component {
         }
     }
 
-    getPost = async () => {
-        let data = await api.get('/')
-        .then(({data}) => data)
-        this.setState({posts: data, count:0})
+    getUnit = async () => {
+      let data = await api.get('/')
+      .then(response => {
+          console.log(response.data)
+          this.setState({posts: response.data, count:0})
+      })
+      .catch(error => {
+          console.log(error)
+      })
     }
 
     deleteUnit = async (id) =>{
@@ -89,23 +94,12 @@ class UnitList extends React.Component {
         .catch(error => {
             console.log(error)
         })
-        this.getPost()
+        this.getUnit()
     }
 
     updateUnit = (id) =>{
       console.log(id)
       this.props.history.push("UnitFormUpdate/"+id)
-    }
-
-    getUnit = async () => {
-        let data = await api.get('/')
-        .then(response => {
-            console.log(response.data)
-            this.setState({posts: response.data})
-        })
-        .catch(error => {
-            console.log(error)
-        })
     }
 
     componentDidMount(){
