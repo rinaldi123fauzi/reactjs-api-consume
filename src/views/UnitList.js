@@ -104,7 +104,7 @@ class UnitList extends React.Component {
 
     componentDidMount(){
         this.getUnit()
-        setInterval(this.getUnit, 1000); // runs every 1 seconds.
+        setInterval(this.getUnit, 3000); // runs every 1 seconds.
     }
     
     render() {
