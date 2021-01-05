@@ -123,7 +123,7 @@ class UnitList extends React.Component {
                                 <tr>
                                     <th>No</th>
                                     <th>Name</th>
-                                    <th>Created</th>
+                                    <th>Created at</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -136,7 +136,7 @@ class UnitList extends React.Component {
                                             <td key={index + Math.random()}>{post.created_at}</td>
                                             <td key={index + Math.random()}>
                                                 <button onClick={() => this.updateUnit(post.id)}>Update</button>
-                                                <button onClick={() => this.deleteUnit(post.id)}>Delete</button>
+                                                <button onClick={() => {if (window.confirm('Are you sure you wish to delete this item?')) this.deleteUnit(post.id)}}>Delete</button>
                                             </td>
                                         </tr>
                                     )

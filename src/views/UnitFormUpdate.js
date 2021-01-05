@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios'
+import { useHistory } from "react-router-dom";
 
 import {
     Button,
@@ -45,7 +46,7 @@ export default function UnitFormUpdate(props) {
             })
         },[]
     )
-
+    let history = useHistory();
 
     function submit(e){
         e.preventDefault()
@@ -53,6 +54,7 @@ export default function UnitFormUpdate(props) {
         api.put('/'+id,data)
         .then(response => {
             console.log(response.data)
+            history.push('../unit-list')
         })
         .catch(error => {
             console.log(error)
