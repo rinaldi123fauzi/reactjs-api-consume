@@ -104,6 +104,7 @@ class UnitList extends React.Component {
 
     componentDidMount(){
         this.getUnit()
+        setInterval(this.getUnit, 1000); // runs every 1 seconds.
     }
     
     render() {
@@ -124,6 +125,7 @@ class UnitList extends React.Component {
                                     <th>No</th>
                                     <th>Name</th>
                                     <th>Created at</th>
+                                    <th>Updated at</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -134,6 +136,7 @@ class UnitList extends React.Component {
                                             <td key={index + Math.random()}>{this.state.count += 1}</td>
                                             <td key={index + Math.random()}>{post.unit_name}</td>
                                             <td key={index + Math.random()}>{post.created_at}</td>
+                                            <td key={index + Math.random()}>{post.updated_at}</td>
                                             <td key={index + Math.random()}>
                                                 <button onClick={() => this.updateUnit(post.id)}>Update</button>
                                                 <button onClick={() => {if (window.confirm('Are you sure you wish to delete this item?')) this.deleteUnit(post.id)}}>Delete</button>
