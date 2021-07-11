@@ -30,11 +30,35 @@ import FieldList from "views/FieldList.js";
 import UnitList from "views/UnitList.js";
 import UnitForm from "views/UnitForm.js";
 import UnitFormUpdate from "views/UnitFormUpdate.js";
+import RfcList from "views/RfcList.js";
+import RfcForm from "views/RfcForm.js";
+import RfcFormUpdate from "views/RfcFormUpdate.js";
 
 var routes = [
   {
+    pro: true,
+    path: "/rfc-form-update/:id",
+    component: RfcFormUpdate,
+    layout: "/admin",
+  },
+  {
+    pro: true,
     path: "/unit-form-update/:id",
     component: UnitFormUpdate,
+    layout: "/admin",
+  },
+  {
+    path: "/rfc-form",
+    name: "RfcForm",
+    icon: "nc-icon nc-bank",
+    component: RfcForm,
+    layout: "/admin",
+  },
+  {
+    path: "/rfc-list",
+    name: "RfcList",
+    icon: "nc-icon nc-bank",
+    component: RfcList,
     layout: "/admin",
   },
   {
