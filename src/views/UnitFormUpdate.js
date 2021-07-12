@@ -48,10 +48,10 @@ export default function UnitFormUpdate(props) {
     )
     let history = useHistory();
 
-    function submit(e){
+    async function submit(e){
         e.preventDefault()
         const id = props.match.params.id
-        api.put('/'+id,data)
+        await api.put('/'+id,data)
         .then(response => {
             console.log(response.data)
             history.push('../unit-list')
