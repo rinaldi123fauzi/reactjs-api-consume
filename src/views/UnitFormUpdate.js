@@ -47,18 +47,28 @@ export default function UnitFormUpdate(props) {
         },[]
     )
     let history = useHistory();
+    
+    // versi 1
+    // async function submit(e){
+    //     e.preventDefault()
+    //     const id = props.match.params.id
+    //     await api.put('/'+id,data)
+    //     .then(response => {
+    //         console.log(response.data)
+    //         history.push('../unit-list')
+    //     })
+    //     .catch(error => {
+    //         console.log(error)
+    //     })
+    // }
 
+    //versi 2
     async function submit(e){
         e.preventDefault()
         const id = props.match.params.id
         await api.put('/'+id,data)
-        .then(response => {
-            console.log(response.data)
-            history.push('../unit-list')
-        })
-        .catch(error => {
-            console.log(error)
-        })
+        console.log(data)
+        history.push('../unit-list')
     }
 
     function handle(e){

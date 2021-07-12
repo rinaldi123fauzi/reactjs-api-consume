@@ -82,15 +82,23 @@ class UnitForm extends React.Component {
         this.setState({[e.target.name]: e.target.value})
     }
 
+    //versi 1
+    // postUnit = async () =>{
+    //   let data = await api.post('/', this.state)
+    //   .then(response => {
+    //       console.log(response)
+    //       return this.notify('tl')
+    //   })
+    //   .catch(error => {
+    //       console.log(error)
+    //   })
+    // }
+
+    //versi 2
     postUnit = async () =>{
-      let data = await api.post('/', this.state)
-      .then(response => {
-          console.log(response)
-          return this.notify('tl')
-      })
-      .catch(error => {
-          console.log(error)
-      })
+      await api.post('/', this.state)
+      console.log(this.state)
+      return this.notify('tl')
     }
 
     submitHandler = e => {
