@@ -17,7 +17,7 @@ import {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'X-Api-Key': 'Pg4550Lut1oN!'
+        'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2MjkwMzY5Nzl9.XmOFL10chq2casbkMvWqjnoKDgAFPuIYQz1wXrZRuXY'
      }
   })
 
@@ -70,6 +70,7 @@ class RfcList extends React.Component {
     
         this.state = {
              posts: [],
+             kontaks: [],
              errorMsg: "",
              count:0
         }
@@ -78,8 +79,9 @@ class RfcList extends React.Component {
     getUnit = async () => {
       let data = await api.get('/')
       .then(response => {
-          console.log(response.data)
-          this.setState({posts: response.data, count:0})
+          console.log(response.data.body)
+          this.setState({posts: response.data.body, count:0})
+          this.setState({kontaks: response.data.contact, count:0})
       })
       .catch(error => {
           console.log(error)
@@ -108,7 +110,7 @@ class RfcList extends React.Component {
     }
     
     render() {
-        const { posts, errorMsg } = this.state
+        const { posts, kontaks, errorMsg } = this.state
         return (
             <div className="content">
                 <NotificationAlert ref={this.notificationAlert} />
@@ -116,7 +118,7 @@ class RfcList extends React.Component {
                     <Col md="12">
                         <Card>
                             <CardHeader>
-                                <CardTitle tag="h4">API RFC Get</CardTitle>
+                                <CardTitle tag="h4">API RFC Get | {kontaks.map((kontak) => kontak.mail )} </CardTitle>
                             </CardHeader>
                             <CardBody>
                             <Table responsive>

@@ -23,7 +23,7 @@ export default function RfcFormUpdate(props) {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'X-Api-Key': 'Pg4550Lut1oN!'
+          'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2MjkwMzY5Nzl9.XmOFL10chq2casbkMvWqjnoKDgAFPuIYQz1wXrZRuXY'
        }
     
      })
@@ -40,7 +40,7 @@ export default function RfcFormUpdate(props) {
             api.get('/'+id)
             .then(response => {
                 console.log(response.data)
-                setData(response.data)
+                setData(response.data.body)
             })
             .catch(error => {
                 console.log(error)
