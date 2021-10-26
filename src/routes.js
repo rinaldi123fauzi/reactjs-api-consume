@@ -33,6 +33,8 @@ import UnitFormUpdate from "views/UnitFormUpdate.js";
 import RfcList from "views/RfcList.js";
 import RfcForm from "views/RfcForm.js";
 import RfcFormUpdate from "views/RfcFormUpdate.js";
+import InfiniteScroll from "views/InfiniteScroll.js";
+
 
 var routes = [
   {
@@ -45,6 +47,13 @@ var routes = [
     pro: true,
     path: "/unit-form-update/:id",
     component: UnitFormUpdate,
+    layout: "/admin",
+  },
+  {
+    path: "/infinite-scroll",
+    name: "InfiniteScroll",
+    component: InfiniteScroll,
+    icon: "nc-icon nc-bank",
     layout: "/admin",
   },
   {
