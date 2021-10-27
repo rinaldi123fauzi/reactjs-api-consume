@@ -1,6 +1,16 @@
 import React, {useState, useRef, useCallback} from "react";
 import SearchServices from "./SearchServices";
 
+import {
+    Card,
+    CardHeader,
+    CardBody,
+    CardTitle,
+    Table,
+    Row,
+    Col,
+  } from "reactstrap";
+
 export default function InfiniteScroll(){
     const [query, setQuery] = useState('')
     const [pageNumber, setPageNumber] = useState(1)
@@ -27,25 +37,39 @@ export default function InfiniteScroll(){
 
     return(
         <>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <input type="text" value={query} onChange={handleSearch}></input>
-        {books.map((book, index) => {
-            if (books.length === index + 1){
-                return <div ref={lastBookElementRef} key={book}>{book}</div>
-            } else {
-                return <div key={book}>{book}</div>
-            }
-             
-        })}
-        <div>{loading && 'Loading...'}</div>
-        <div>{error && 'Error'}</div>
+        <div className="content">
+                <input type="text" value={query} onChange={handleSearch}></input>
+                <Row>
+                    <Col md="12">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle tag="h4">API RFC Get</CardTitle>
+                            </CardHeader>
+                            <CardBody>
+                                <Table responsive>
+                                    <thead className="text-primary">
+                                    <tr>
+                                        <th>Nama</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {books.map((book, index) => {
+                                            if (books.length === index + 1){
+                                                return <tr><td ref={lastBookElementRef} key={book}>{book}</td></tr>
+                                            } else {
+                                                return <tr><td key={book}>{book}</td></tr>
+                                            }
+                                            
+                                        })}
+                                        <div>{loading && 'Loading...'}</div>
+                                        <div>{error && 'Error'}</div>
+                                    </tbody>
+                                </Table>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                </Row>
+            </div>
         </>
     )
 }
