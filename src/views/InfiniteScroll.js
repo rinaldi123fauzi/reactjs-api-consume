@@ -1,5 +1,5 @@
 import React, {useState, useRef, useCallback} from "react";
-import SearchServices from "./SearchServices";
+import SearchServices from "services/SearchServices";
 
 import {
     Card,
@@ -8,6 +8,7 @@ import {
     CardTitle,
     Table,
     Row,
+    Input,
     Col,
   } from "reactstrap";
 
@@ -38,12 +39,18 @@ export default function InfiniteScroll(){
     return(
         <>
         <div className="content">
-                <input type="text" value={query} onChange={handleSearch}></input>
+                <Input
+                    placeholder="Search Data"
+                    type="text"
+                    value={query}
+                    onChange={handleSearch}
+                />
+                <br/>
                 <Row>
                     <Col md="12">
                         <Card>
                             <CardHeader>
-                                <CardTitle tag="h4">API RFC Get</CardTitle>
+                                <CardTitle tag="h4">API Lazy Load Data</CardTitle>
                             </CardHeader>
                             <CardBody>
                                 <Table responsive>

@@ -1,6 +1,15 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 
+const api = axios.create({
+    baseURL: `http://rfc.pgn-solution.co.id/api/v1/api_tests`,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'X-Api-Key': 'Pg4550Lut1oN!'
+   }
+})
+
 export default function SearchServices(query, pageNumber){
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
