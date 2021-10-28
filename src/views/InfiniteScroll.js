@@ -62,16 +62,16 @@ export default function InfiniteScroll(){
                                     <tbody>
                                         {books.map((book, index) => {
                                             if (books.length === index + 1){
-                                                return <tr><td ref={lastBookElementRef} key={book}>{book}</td></tr>
+                                                return <tr key={index}><td key={index} ref={lastBookElementRef}>{book}</td></tr>
                                             } else {
-                                                return <tr><td key={book}>{book}</td></tr>
+                                                return <tr key={index}><td key={index}>{book}</td></tr>
                                             }
                                             
                                         })}
-                                        <div>{loading && 'Loading...'}</div>
-                                        <div>{error && 'Error'}</div>
                                     </tbody>
                                 </Table>
+                                <div key={Math.random()}>{loading && 'Loading...'}</div>
+                                <div key={Math.random()}>{error && 'Error'}</div>
                             </CardBody>
                         </Card>
                     </Col>
