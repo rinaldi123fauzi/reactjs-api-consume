@@ -21,13 +21,13 @@ export default function SearchServices(query, pageNumber){
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2MzUzMTE5NDB9.nHRZ8N-w8ZiJEaqene2qz_V_oaEJbpmZ8yS5k4UNErw'
+                'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2MzYyOTQ1OTl9.Q7CS6xupDpDvo_A0NaSjMvddELwhFlAb11_Pap1HRL4'
             },
             params:{q: query, page: pageNumber},
             cancelToken: new axios.CancelToken(c => cancel = c)
         }).then(res => {
             setBooks(prevBooks => {
-                return [...new Set([...prevBooks, ...res.data.body.map(b => b.nama)])]
+                return [...new Set([...prevBooks, ...res.data.body])]
             })
             setHasMore(res.data.body.length > 0)
             setLoading(false)
