@@ -19,7 +19,7 @@ const api = axios.create({
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2MzYyOTQ1OTl9.Q7CS6xupDpDvo_A0NaSjMvddELwhFlAb11_Pap1HRL4'
+      'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2Mzc1MTAxNzl9.atIXT4Z2BNC0NBzk-GygiDcgYNlANQWlXydu83wMrwY'
    }
 })
 

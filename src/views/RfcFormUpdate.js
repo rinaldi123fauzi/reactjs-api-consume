@@ -19,14 +19,13 @@ import {
  
 export default function RfcFormUpdate(props) {
     const api = axios.create({
-        baseURL: `https://rfc.pgn-solution.co.id/api/v1/api_tests`,
+        baseURL: `http://localhost:1234/api/v1/api_tests`,
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'X-Api-Key': 'Pg4550Lut1oN!'
+          'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2Mzc1MTAxNzl9.atIXT4Z2BNC0NBzk-GygiDcgYNlANQWlXydu83wMrwY'
        }
-    
-     })
+    })
 
     const [data, setData] = useState({
         nama: "",
@@ -39,8 +38,8 @@ export default function RfcFormUpdate(props) {
             const id = props.match.params.id
             api.get('/'+id)
             .then(response => {
-                console.log(response.data)
-                setData(response.data)
+                console.log(response.data.body)
+                setData(response.data.body)
             })
             .catch(error => {
                 console.log(error)
@@ -54,8 +53,8 @@ export default function RfcFormUpdate(props) {
         const id = props.match.params.id
         api.put('/'+id,data)
         .then(response => {
-            console.log(response.data)
-            history.push('../rfc-list')
+            console.log(response.data.body)
+            history.push('../infinite-scroll')
         })
         .catch(error => {
             console.log(error)
